@@ -14,11 +14,9 @@
       --bg: #000;
       --text: #fff;
       --muted: #bdbdbd;
-      --accent: #2a2a2a;
-      --focus: #8a8a8a;
-      --radius: 12px;
-      --gap: 24px;
-      --maxw: 520px;
+      --accent: #333;
+      --focus: #666;
+      --radius: 4px;
     }
  
     /* Reset + base */
@@ -33,230 +31,226 @@
       font-family: "Raleway", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     }
  
-    a { color: var(--text); text-decoration: none; }
     img { max-width: 100%; display: block; }
  
     /* Layout */
-    .wrap {
-      min-height: 100%;
-      display: grid;
-      grid-template-rows: 1fr auto;
-    }
- 
-    main {
-      display: grid;
-      place-items: center;
-      padding: 48px 20px 24px;
-    }
- 
-    .stack {
-      width: 100%;
-      max-width: var(--maxw);
-      display: grid;
-      justify-items: center;
-      gap: clamp(20px, 5vw, 36px);
-      text-align: center;
-    }
- 
-    .eyebrow {
-      letter-spacing: 0.22em;
-      text-transform: none;
-      font-weight: 300;
-      color: var(--muted);
-      font-size: 15px;
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      max-width: 400px;
+      margin: 0 auto;
     }
  
     .headline {
-      font-size: clamp(22px, 5.5vw, 32px);
+      font-size: 18px;
       font-weight: 300;
-      line-height: 1.4;
+      line-height: 1.6;
       color: var(--muted);
+      text-align: center;
+      margin-bottom: 60px;
+      letter-spacing: 0.5px;
     }
-    .headline .micro { font-weight: 700; color: var(--text); }
- 
-    .divider-space { height: 4px; }
- 
-    .invite {
-      letter-spacing: 0.36em;
-      font-weight: 600;
-      font-size: 12px;
-      color: var(--muted);
+    .headline .micro { 
+      font-weight: 700; 
+      color: var(--text); 
     }
  
     .hero-img {
-      width: min(74vw, 320px);
-      margin: 6px auto 0;
-      filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+      width: 120px;
+      height: 120px;
+      margin-bottom: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.2) brightness(0.8);
     }
  
-    /* Card form */
-    .card {
+    .invite {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 80px;
+    }
+ 
+    /* Form */
+    .form-container {
       width: 100%;
-      max-width: 360px;
-      display: grid;
-      gap: 12px;
+      max-width: 280px;
     }
  
     .logo {
-      width: 92px;
-      margin: 6px auto 10px;
-      opacity: 1;
-    }
- 
-    label {
-      position: absolute;
-      left: -9999px;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
     }
  
     .input {
       width: 100%;
       background: transparent;
-      border: 1px solid #2a2a2a;
+      border: 1px solid #333;
       color: var(--text);
       border-radius: var(--radius);
-      padding: 14px 14px;
-      font-size: 14px;
-      letter-spacing: 0.06em;
-      transition: all 0.3s ease;
+      padding: 12px 16px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      font-family: inherit;
     }
-    .input::placeholder { color: #aaaaaa; }
+    .input::placeholder { 
+      color: #666; 
+      font-style: italic;
+      font-weight: 300;
+    }
     .input:focus {
       outline: none;
-      border-color: var(--focus);
-      box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
-    }
-    .input:invalid {
-      border-color: #ff4444;
+      border-color: #666;
     }
  
-    .checkbox {
+    .checkbox-container {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 4px;
-      user-select: none;
+      margin-bottom: 24px;
       cursor: pointer;
     }
-    .checkbox input {
-      width: 18px; 
-      height: 18px;
-      accent-color: #fff;
-      border-radius: 4px;
+    
+    .checkbox {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #666;
+      border-radius: 2px;
+      margin-right: 12px;
+      background: transparent;
       cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+    }
+    
+    .checkbox:checked {
+      background: #666;
+      border-color: #666;
+    }
+    
+    .checkbox:checked::after {
+      content: '✓';
+      position: absolute;
+      left: 2px;
+      top: -2px;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .checkbox-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-style: italic;
+      cursor: pointer;
+      user-select: none;
     }
  
     .btn {
-      appearance: none;
-      border: none;
       width: 100%;
-      padding: 14px 16px;
+      padding: 14px 20px;
+      border: none;
       border-radius: var(--radius);
       background: var(--accent);
       color: var(--text);
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       cursor: pointer;
+      font-family: inherit;
       transition: all 0.3s ease;
+      margin-bottom: 40px;
     }
     .btn:hover {
-      background: #3a3a3a;
+      background: #444;
     }
-    .btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-    .btn:active { transform: translateY(1px); }
     .btn:disabled {
       opacity: 0.6;
       cursor: not-allowed;
     }
 
+    .footer-text {
+      color: var(--muted);
+      font-size: 13px;
+      font-style: italic;
+      text-align: center;
+    }
+
     /* Success/Error messages */
     .success-message {
-      background: #1e3a1e;
+      background: rgba(76, 175, 80, 0.1);
       border: 1px solid #4caf50;
       color: #81c784;
       padding: 12px;
       border-radius: var(--radius);
-      font-size: 13px;
+      font-size: 12px;
       text-align: center;
-      margin-top: 8px;
+      margin-bottom: 16px;
     }
 
     .error-message {
-      background: #3a1e1e;
+      background: rgba(244, 67, 54, 0.1);
       border: 1px solid #f44336;
       color: #ef5350;
       padding: 12px;
       border-radius: var(--radius);
-      font-size: 13px;
+      font-size: 12px;
       text-align: center;
-      margin-top: 8px;
+      margin-bottom: 16px;
     }
- 
-    footer {
-      padding: 16px 20px 28px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .curious { opacity: 0.9; }
 </style>
 </head>
  
 <body>
-<div class="wrap">
-<main>
-<div class="stack" role="region" aria-label="Invitation">
-<div class="headline">
-          Biosensing.<br />
-          On a <span class="micro">micro</span> scale.
-</div>
- 
-        <img
-          class="hero-img"
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAeACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q=="
-          alt="Micro-scale biosensing element on a black background" />
- 
-        <div class="invite" aria-hidden="true">YOU ARE INVITED</div>
- 
-        <form class="card" id="invitationForm" autocomplete="on" novalidate>
-          <div class="logo">
-            <svg width="92" height="30" viewBox="0 0 92 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <text x="46" y="20" text-anchor="middle" fill="white" font-size="20" font-weight="700" letter-spacing="4px" font-family="Raleway">SAVA</text>
-            </svg>
-          </div>
- 
-          <label for="first">First name</label>
-          <input class="input" id="first" name="firstName" placeholder="First name" inputmode="text" required />
- 
-          <label for="last">Last name</label>
-          <input class="input" id="last" name="lastName" placeholder="Last name" inputmode="text" required />
- 
-          <label for="email">Email address</label>
-          <input class="input" id="email" name="email" placeholder="Email address" inputmode="email" type="email" required />
- 
-          <label class="checkbox" for="diabetes">
-            <input id="diabetes" name="diabetes" type="checkbox" />
-            <span>I am living with diabetes</span>
-          </label>
- 
-          <button class="btn" type="submit">Join Now</button>
-        </form>
-</div>
-</main>
- 
-    <footer>
-<div class="curious">Curious?</div>
-</footer>
+<div class="container">
+  <div class="headline">
+    Biosensing.<br />
+    On a <span class="micro">micro</span> scale.
+  </div>
+
+  <img
+    class="hero-img"
+    src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=240&h=240&fit=crop&crop=center"
+    alt="Micro-scale biosensing element" />
+
+  <div class="invite">YOU ARE INVITED</div>
+
+  <form class="form-container" id="invitationForm">
+    <div class="logo">sava</div>
+
+    <input class="input" id="first" name="firstName" placeholder="First name" type="text" required />
+    <input class="input" id="last" name="lastName" placeholder="Last name" type="text" required />
+    <input class="input" id="email" name="email" placeholder="Email address" type="email" required />
+
+    <div class="checkbox-container" onclick="toggleCheckbox()">
+      <input class="checkbox" id="diabetes" name="diabetes" type="checkbox" />
+      <label class="checkbox-label" for="diabetes">I am living with diabetes</label>
+    </div>
+
+    <button class="btn" type="submit">Join Now</button>
+  </form>
+
+  <div class="footer-text">Curious?</div>
 </div>
 
 <script>
 // ⚠️ REMPLACEZ PAR VOTRE URL GOOGLE APPS SCRIPT
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9gtBi-BVlKY3gq0Vf77zYekiy75owPwXjBuop6CMfxgU4JjZsKT5Y-1RTTGWCD48BJA/exec";
+
+function toggleCheckbox() {
+  const checkbox = document.getElementById('diabetes');
+  checkbox.checked = !checkbox.checked;
+}
 
 document.getElementById('invitationForm').addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -327,7 +321,7 @@ function showMessage(text, type) {
   messageDiv.textContent = text;
   
   const form = document.getElementById('invitationForm');
-  form.appendChild(messageDiv);
+  form.insertBefore(messageDiv, form.firstChild);
   
   // Auto-remove après 5 secondes
   setTimeout(() => {
@@ -341,19 +335,6 @@ function removeMessages() {
   const messages = document.querySelectorAll('.success-message, .error-message');
   messages.forEach(msg => msg.remove());
 }
-
-// Animation d'entrée progressive
-document.addEventListener('DOMContentLoaded', function() {
-  const stack = document.querySelector('.stack');
-  stack.style.opacity = '0';
-  stack.style.transform = 'translateY(20px)';
-  stack.style.transition = 'all 0.8s ease-out';
-  
-  setTimeout(() => {
-    stack.style.opacity = '1';
-    stack.style.transform = 'translateY(0)';
-  }, 100);
-});
 </script>
 
 </body>
