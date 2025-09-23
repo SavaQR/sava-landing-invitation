@@ -86,7 +86,7 @@
     .hero-img {
       width: min(74vw, 320px);
       margin: 6px auto 0;
-      filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+      filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
     }
  
     /* Card form */
@@ -120,12 +120,16 @@
       padding: 14px 14px;
       font-size: 14px;
       letter-spacing: 0.06em;
+      transition: all 0.3s ease;
     }
     .input::placeholder { color: #aaaaaa; }
     .input:focus {
       outline: none;
       border-color: var(--focus);
       box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
+    }
+    .input:invalid {
+      border-color: #ff4444;
     }
  
     .checkbox {
@@ -136,11 +140,14 @@
       color: var(--muted);
       margin-top: 4px;
       user-select: none;
+      cursor: pointer;
     }
     .checkbox input {
-      width: 18px; height: 18px;
+      width: 18px; 
+      height: 18px;
       accent-color: #fff;
       border-radius: 4px;
+      cursor: pointer;
     }
  
     .btn {
@@ -211,13 +218,17 @@
  
         <img
           class="hero-img"
-          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMyMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE1MCIgcj0iMTAwIiBzdHJva2U9IiNjY2MiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgo8Y2lyY2xlIGN4PSIxNjAiIGN5PSIxNTAiIHI9IjEwIiBmaWxsPSIjZmZmIi8+Cjx0ZXh0IHg9IjE2MCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5IiBmb250LXNpemU9IjE0Ij5NaWNybyBCaW9zZW5zb3I8L3RleHQ+Cjwvc3ZnPgo="
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAeACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigD//2Q=="
           alt="Micro-scale biosensing element on a black background" />
  
         <div class="invite" aria-hidden="true">YOU ARE INVITED</div>
  
         <form class="card" id="invitationForm" autocomplete="on" novalidate>
-          <img class="logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTIiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA5MiAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHRleHQgeD0iNDYiIHk9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjRweCIgZm9udC1mYW1pbHk9IlJhbGV3YXkiPlNBVkE8L3RleHQ+Cjwvc3ZnPgo=" alt="Sava" />
+          <div class="logo">
+            <svg width="92" height="30" viewBox="0 0 92 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="46" y="20" text-anchor="middle" fill="white" font-size="20" font-weight="700" letter-spacing="4px" font-family="Raleway">SAVA</text>
+            </svg>
+          </div>
  
           <label for="first">First name</label>
           <input class="input" id="first" name="firstName" placeholder="First name" inputmode="text" required />
@@ -228,12 +239,10 @@
           <label for="email">Email address</label>
           <input class="input" id="email" name="email" placeholder="Email address" inputmode="email" type="email" required />
  
-          <div class="checkbox">
+          <label class="checkbox" for="diabetes">
             <input id="diabetes" name="diabetes" type="checkbox" />
-            <label for="diabetes" style="position: static; width: auto; height: auto; overflow: visible;">
-              I am living with diabetes
-            </label>
-          </div>
+            <span>I am living with diabetes</span>
+          </label>
  
           <button class="btn" type="submit">Join Now</button>
         </form>
@@ -259,9 +268,16 @@ document.getElementById('invitationForm').addEventListener('submit', async funct
   const email = form.querySelector('#email').value.trim();
   const isDiabetic = form.querySelector('#diabetes').checked;
 
-  // Validation basique
+  // Validation des champs obligatoires
   if (!firstName || !lastName || !email) {
     showMessage('Please fill in all required fields', 'error');
+    return;
+  }
+
+  // Validation email avec regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    showMessage('Please enter a valid email address', 'error');
     return;
   }
 
