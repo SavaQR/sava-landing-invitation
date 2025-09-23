@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Sava – Invitation</title>
+ 
+  <!-- Raleway font -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+ 
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --muted: #bdbdbd;
+      --accent: #2a2a2a;
+      --focus: #8a8a8a;
+      --radius: 12px;
+      --gap: 24px;
+      --maxw: 520px;
+    }
+ 
+    /* Reset + base */
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: "Raleway", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+ 
+    a { color: var(--text); text-decoration: none; }
+    img { max-width: 100%; display: block; }
+ 
+    /* Layout */
+    .wrap {
+      min-height: 100%;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+ 
+    main {
+      display: grid;
+      place-items: center;
+      padding: 48px 20px 24px;
+    }
+ 
+    .stack {
+      width: 100%;
+      max-width: var(--maxw);
+      display: grid;
+      justify-items: center;
+      gap: clamp(20px, 5vw, 36px);
+      text-align: center;
+    }
+ 
+    .eyebrow {
+      letter-spacing: 0.22em;
+      text-transform: none;
+      font-weight: 300;
+      color: var(--muted);
+      font-size: 15px;
+    }
+ 
+    .headline {
+      font-size: clamp(22px, 5.5vw, 32px);
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+    .headline .micro { font-weight: 700; color: var(--text); }
+ 
+    .divider-space { height: 4px; }
+ 
+    .invite {
+      letter-spacing: 0.36em;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--muted);
+    }
+ 
+    .hero-img {
+      width: min(74vw, 320px);
+      margin: 6px auto 0;
+      filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+    }
+ 
+    /* Card form */
+    .card {
+      width: 100%;
+      max-width: 360px;
+      display: grid;
+      gap: 12px;
+    }
+ 
+    .logo {
+      width: 92px;
+      margin: 6px auto 10px;
+      opacity: 1;
+    }
+ 
+    label {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+ 
+    .input {
+      width: 100%;
+      background: transparent;
+      border: 1px solid #2a2a2a;
+      color: var(--text);
+      border-radius: var(--radius);
+      padding: 14px 14px;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+    }
+    .input::placeholder { color: #aaaaaa; }
+    .input:focus {
+      outline: none;
+      border-color: var(--focus);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
+    }
+ 
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+      user-select: none;
+    }
+    .checkbox input {
+      width: 18px; height: 18px;
+      accent-color: #fff;
+      border-radius: 4px;
+    }
+ 
+    .btn {
+      appearance: none;
+      border: none;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      background: var(--accent);
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #3a3a3a;
+    }
+    .btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .btn:active { transform: translateY(1px); }
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* Success/Error messages */
+    .success-message {
+      background: #1e3a1e;
+      border: 1px solid #4caf50;
+      color: #81c784;
+      padding: 12px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .error-message {
+      background: #3a1e1e;
+      border: 1px solid #f44336;
+      color: #ef5350;
+      padding: 12px;
+      border-radius: var(--radius);
+      font-size: 13px;
+      text-align: center;
+      margin-top: 8px;
+    }
+ 
+    footer {
+      padding: 16px 20px 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .curious { opacity: 0.9; }
+</style>
+</head>
+ 
+<body>
+<div class="wrap">
+<main>
+<div class="stack" role="region" aria-label="Invitation">
+<div class="headline">
+          Biosensing.<br />
+          On a <span class="micro">micro</span> scale.
+</div>
+ 
+        <img
+          class="hero-img"
+          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMyMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE1MCIgcj0iMTAwIiBzdHJva2U9IiNjY2MiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgo8Y2lyY2xlIGN4PSIxNjAiIGN5PSIxNTAiIHI9IjEwIiBmaWxsPSIjZmZmIi8+Cjx0ZXh0IHg9IjE2MCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5IiBmb250LXNpemU9IjE0Ij5NaWNybyBCaW9zZW5zb3I8L3RleHQ+Cjwvc3ZnPgo="
+          alt="Micro-scale biosensing element on a black background" />
+ 
+        <div class="invite" aria-hidden="true">YOU ARE INVITED</div>
+ 
+        <form class="card" id="invitationForm" autocomplete="on" novalidate>
+          <img class="logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTIiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCA5MiAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHRleHQgeD0iNDYiIHk9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjRweCIgZm9udC1mYW1pbHk9IlJhbGV3YXkiPlNBVkE8L3RleHQ+Cjwvc3ZnPgo=" alt="Sava" />
+ 
+          <label for="first">First name</label>
+          <input class="input" id="first" name="firstName" placeholder="First name" inputmode="text" required />
+ 
+          <label for="last">Last name</label>
+          <input class="input" id="last" name="lastName" placeholder="Last name" inputmode="text" required />
+ 
+          <label for="email">Email address</label>
+          <input class="input" id="email" name="email" placeholder="Email address" inputmode="email" type="email" required />
+ 
+          <div class="checkbox">
+            <input id="diabetes" name="diabetes" type="checkbox" />
+            <label for="diabetes" style="position: static; width: auto; height: auto; overflow: visible;">
+              I am living with diabetes
+            </label>
+          </div>
+ 
+          <button class="btn" type="submit">Join Now</button>
+        </form>
+</div>
+</main>
+ 
+    <footer>
+<div class="curious">Curious?</div>
+</footer>
+</div>
+
+<script>
+// ⚠️ REMPLACEZ PAR VOTRE URL GOOGLE APPS SCRIPT
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9gtBi-BVlKY3gq0Vf77zYekiy75owPwXjBuop6CMfxgU4JjZsKT5Y-1RTTGWCD48BJA/exec";
+
+document.getElementById('invitationForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const form = this;
+  const button = form.querySelector('.btn');
+  const firstName = form.querySelector('#first').value.trim();
+  const lastName = form.querySelector('#last').value.trim();
+  const email = form.querySelector('#email').value.trim();
+  const isDiabetic = form.querySelector('#diabetes').checked;
+
+  // Validation basique
+  if (!firstName || !lastName || !email) {
+    showMessage('Please fill in all required fields', 'error');
+    return;
+  }
+
+  // État de chargement
+  const originalText = button.textContent;
+  button.textContent = 'JOINING...';
+  button.disabled = true;
+
+  // Supprimer anciens messages
+  removeMessages();
+
+  try {
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: 'no-cors',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        isDiabetic: isDiabetic,
+        source: "Invitation Page"
+      })
+    });
+
+    // Avec no-cors, on assume que ça a marché
+    showMessage(`Welcome ${firstName}! You've been added to our exclusive list.`, 'success');
+    form.reset();
+
+  } catch (error) {
+    console.error('Error:', error);
+    showMessage('Something went wrong. Please try again.', 'error');
+  } finally {
+    // Reset du bouton
+    button.textContent = originalText;
+    button.disabled = false;
+  }
+});
+
+function showMessage(text, type) {
+  removeMessages();
+  
+  const messageDiv = document.createElement('div');
+  messageDiv.className = type === 'success' ? 'success-message' : 'error-message';
+  messageDiv.textContent = text;
+  
+  const form = document.getElementById('invitationForm');
+  form.appendChild(messageDiv);
+  
+  // Auto-remove après 5 secondes
+  setTimeout(() => {
+    if (messageDiv.parentNode) {
+      messageDiv.remove();
+    }
+  }, 5000);
+}
+
+function removeMessages() {
+  const messages = document.querySelectorAll('.success-message, .error-message');
+  messages.forEach(msg => msg.remove());
+}
+
+// Animation d'entrée progressive
+document.addEventListener('DOMContentLoaded', function() {
+  const stack = document.querySelector('.stack');
+  stack.style.opacity = '0';
+  stack.style.transform = 'translateY(20px)';
+  stack.style.transition = 'all 0.8s ease-out';
+  
+  setTimeout(() => {
+    stack.style.opacity = '1';
+    stack.style.transform = 'translateY(0)';
+  }, 100);
+});
+</script>
+
+</body>
+</html>
