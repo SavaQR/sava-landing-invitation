@@ -185,6 +185,16 @@
       text-align: center;
     }
 
+    .footer-text a {
+       color: var(--text);
+       text-decoration: none;
+       transition: opacity 0.3s ease;
+     }
+ 
+     .footer-text a:hover {
+       opacity: 0.7;
+     }
+
     /* Success/Error messages */
     .success-message {
       background: rgba(76, 175, 80, 0.1);
@@ -239,7 +249,7 @@
     <button class="btn" type="submit">Join Now</button>
   </form>
 
-  <div class="footer-text">Curious? Find out <strong>more</strong>.</div>
+  <div class="footer-text">Curious? Find out <a href="https://sava.health" target="_blank"><strong>more</strong></a>.</div>
 </div>
 
 <script>
