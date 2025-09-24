@@ -60,8 +60,8 @@
     }
  
     .hero-img {
-      width: 120px;
-      height: 120px;
+      width: 180px;
+      height: 180px;
       margin-bottom: 80px;
       border-radius: 50%;
       object-fit: cover;
@@ -84,12 +84,10 @@
     }
  
     .logo {
-      font-size: 20px;
-      font-weight: 300;
-      color: var(--text);
-      text-align: center;
-      margin-bottom: 40px;
-      letter-spacing: 2px;
+     width: 120px;          /* Ajustez cette valeur selon vos besoins */
+     height: auto;         /* Maintient les proportions */
+     margin: 0 auto 40px;  /* Centre horizontalement */
+     display: block;
     }
  
     .input {
@@ -187,16 +185,6 @@
       text-align: center;
     }
 
-    .footer-text a {
-      color: var(--text);
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .footer-text a:hover {
-      opacity: 0.7;
-    }
-
     /* Success/Error messages */
     .success-message {
       background: rgba(76, 175, 80, 0.1);
@@ -231,13 +219,13 @@
 
   <img
     class="hero-img"
-    src="https://via.placeholder.com/120x120/333333/ffffff?text=●"
+    src="sensor.jpg"
     alt="Micro-scale biosensing element" />
 
   <div class="invite">YOU ARE <strong>INVITED</strong></div>
 
   <form class="form-container" id="invitationForm">
-    <img class="logo" src="logo.png" alt="Sava" />
+  <img class="logo" src="logo.png" alt="Sava" />
 
     <input class="input" id="first" name="firstName" placeholder="First name" type="text" required />
     <input class="input" id="last" name="lastName" placeholder="Last name" type="text" required />
@@ -251,12 +239,12 @@
     <button class="btn" type="submit">Join Now</button>
   </form>
 
-  <div class="footer-text">Curious?</div>
+  <div class="footer-text">Curious? Find out <strong>more</strong>.</div>
 </div>
 
 <script>
 // ⚠️ REMPLACEZ PAR VOTRE URL GOOGLE APPS SCRIPT
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbIC0kWBbPNsxGbNYwhrgW2zrU8jaxMrCSH_3aIIPjeX3XiL8115mb2JJ6zHj6RqEX1A/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby9gtBi-BVlKY3gq0Vf77zYekiy75owPwXjBuop6CMfxgU4JjZsKT5Y-1RTTGWCD48BJA/exec";
 
 function toggleCheckbox() {
   const checkbox = document.getElementById('diabetes');
